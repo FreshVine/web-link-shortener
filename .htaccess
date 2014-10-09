@@ -1,0 +1,33 @@
+# BEGIN Fresh Vine url shortener
+
+# Start setting the experation times for files to increase server performance.
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresDefault A600
+    ExpiresByType image/gif "access plus 1 week"
+    ExpiresByType image/jpeg "access plus 1 week"
+    ExpiresByType image/png "access plus 1 week"
+    ExpiresByType image/x-icon "access plus 1 month"
+
+	## Make sure all dynamic files are not cached
+	<FilesMatch "\.(php|php)$">
+		ExpiresByType text/html "now" 
+	</FilesMatch>
+</IfModule>
+# Done seting the experation times for files to increase server performance.
+
+# Start the Rewrite rules
+<IfModule mod_rewrite.c>
+	Options +FollowSymLinks
+	RewriteEngine On
+
+	## Rewrite everything over to the index file
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule . index.php [L]
+	## Rewrite everything over to the index file
+	
+</IfModule>
+# End the Rewrite rules
+
+# BEGIN Fresh Vine url shortener
