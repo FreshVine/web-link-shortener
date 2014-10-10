@@ -2,7 +2,14 @@
 	// 
 	//	This is the configuration page for the Fresh Vine URL Shortener
 	//
-	
+
+
+	// Lets not do this twice - shall we?
+	if( defined('FVUS_CONFIG_LOADED') )
+		return;	// Thanks for coming!
+
+	define('FVUS_CONFIG_LOADED', true); 
+
 	
 	//
 	// MySQL Database Configuration
@@ -36,5 +43,16 @@
 	if( !defined( 'FVUS_MYSQL_TABLE_PREFIX' ) )
 		define('FVUS_MYSQL_TABLE_PREFIX', '');
 	// MySQL Database Configuration
+	//
+
+
+	//
+	// Structure and Path stuff
+	/**
+	 * The path to the folder (leave NULL if it is not in a folder). EX: 'shortened/links'
+	 **/
+	if( !defined( 'FVUS_SITE_PATH' ) )
+		define('FVUS_SITE_PATH', NULL);
+	// Structure and Path stuff
 	//
 ?>
