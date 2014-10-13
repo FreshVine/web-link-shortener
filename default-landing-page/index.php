@@ -1,10 +1,10 @@
 <?php
-	
+	$thisBaseURL = $BaseURL . 'default-landing-page/';
 	
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-	<base href="<?php echo $BaseURL; ?>default-landing-page/" target="_blank"><?php // Required to work with dynamic re-writing - this path is correct ?>
+	<base href="<?php echo $thisBaseURL; ?>" target="_blank"><?php // Required to work with dynamic re-writing - this path is correct ?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -19,6 +19,7 @@
 	<link rel="shortcut icon" sizes="196x196" href="touch-icon-196.png">
 	<link rel="shortcut icon" type="image/png" href="touch-icon-196.png">
 	<link rel="icon" type="image/png" href="touch-icon-196.png">
+	<link rel="icon" type="image/png" href="favicon.png">
 </header>
 <body>
 	<h1>Landing Page here</h1>
