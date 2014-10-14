@@ -30,6 +30,12 @@
 
 	<section id="primary-content">
 		<div class="row-fluid">
+			<article class="offset2 span8 textCenter description">
+				A link shortening service for <?php echo FVUS_SERVICE_NAME; ?><br />
+				Learn more about what we do at <a href="<?php echo FVUS_SERVICE_URL; ?>"><?php echo rtrim( substr( FVUS_SERVICE_URL, strpos( FVUS_SERVICE_URL, '://' ) + 3 ), '/' ); ?></a>
+			</div>
+		</div>
+		<div class="row-fluid">
 			<article class="span6">
 				<header class="textCenter">
 					<div class="circle"><img src="short-links.png" /></div>
