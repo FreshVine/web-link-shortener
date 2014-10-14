@@ -10,6 +10,19 @@ body{
     font-weight: 300;
 	margin: 0;
 }
+a{ color: #31C0EF; font-weight: 700; text-decoration: none;}
+a:hover{ color: #87C549;}
+
+h1{
+	color: #404140;
+	font-size: 85px;
+	font-weight: 100;
+	text-align: center;
+}
+
+h2{
+	margin-top: .25em;
+}
 .textLeft{ text-align: left; }
 .textCenter{ text-align: center; }
 .textRight{ text-align: right; }
@@ -31,18 +44,6 @@ body{
 
 header.primary-header{
 	padding: 125px 10px;
-}
-
-h1{
-	color: #404140;
-	font-size: 85px;
-	font-weight: 100;
-	text-align: center;
-}
-
-h2{
-/*	font-size: 36px;*/
-	margin-top: .25em;
 }
 
 section#primary-content{
@@ -71,8 +72,6 @@ footer{
 	padding: 10px 15px;
 	text-align: right;
 }
-
-footer a{ color: #fff;}
 
 
 /* Grid Styling */
