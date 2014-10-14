@@ -72,7 +72,9 @@
 	</section>
 
 	<footer>
-		<p>&copy; <?php echo FVUS_COPYRIGHT_START; if( FVUS_COPYRIGHT_START !== date(Y) ){ echo '-' . date(y); } ?> <a href="<?php echo FVUS_SERVICE_URL; ?>"><?php echo FVUS_SERVICE_NAME; ?></a></p>
+		<p>&copy; <?php echo FVUS_COPYRIGHT_START; if( FVUS_COPYRIGHT_START !== date(Y) ){ echo '-' . date(y); } ?> <a href="<?php echo FVUS_SERVICE_URL; ?>"><?php echo FVUS_SERVICE_NAME; ?></a>
+			&middot; <a href="https://github.com/FreshVine/link-shortener">Follow on Github</a>
+		</p>
 	</footer>
 </body>
 </html>
