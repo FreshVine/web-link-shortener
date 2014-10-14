@@ -154,11 +154,7 @@
 
 
 	// Throw an error since there is no content
-	if( !is_null( $Requested ) && !is_file( $path  . $Requested ) ){
-		header("HTTP/1.0 404 Not Found");
-		exit();
-	}
-
+	header("HTTP/1.0 404 Not Found");
 
 	if( is_bool( $Custom404Page ) ){
 		if( is_null( $Requested ) ){

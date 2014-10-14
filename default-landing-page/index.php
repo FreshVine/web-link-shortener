@@ -4,6 +4,7 @@
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
+	<title><?php echo FVUS_SERVICE_NAME; ?> URL Shortener</title>
 	<base href="<?php echo $thisBaseURL; ?>" target="_blank"><?php // Required to work with dynamic re-writing - this path is correct ?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +23,50 @@
 	<link rel="icon" type="image/png" href="favicon.png">
 </header>
 <body>
-	<h1>Landing Page here</h1>
+	<div class="theBase"></div>
+	<header class="primary-header">
+		<h1><?php echo FVUS_SERVICE_NAME; ?>  Link Shortener</h1>
+	</header>
+
+	<section id="primary-content">
+		<div class="row-fluid">
+			<article class="span6">
+				<header class="textCenter">
+					<div class="circle"><img src="short-links.png" /></div>
+					<h2>Keeping Links Classy</h2>
+				</header>
+
+				<div class="textJustify">
+					<p>Keeping links short helps people out.
+						First it allows you to share short links instead of long complicated ones.
+						It's easier to tweet, text, and print short links.
+						The shorter the less chance of typos or links becoming cut off.</p>
+					<p>There are numerous link shortening services out there.
+						This one is designed to work with <a href="<?php echo FVUS_SERVICE_URL; ?>"><?php echo FVUS_SERVICE_NAME; ?></a>.
+						So if you're wondering where the link came from.
+						Checking them out would be the logical choice.</p>
+				</div>
+			</article>
+		
+			<article class="span6">
+				<header class="textCenter">
+					<div class="circle"><img src="understanding.png" /></div>
+					<h2>Increasing Understanding</h2>
+				</header>
+
+				<div class="textJustify">
+					<p>Creating content is hard work.
+						Understanding who is reading and engaging with that content is even harder.
+						But when we can see what catches on - and what doesn't - we make better content in the future.</p>
+					<p>The ultimate goal of tracking clicks and other metrics is to understand what our audience is interested in.
+						That lets us focus our energy in areas that are more meaningful for you.</p>
+				</div>
+			</article>
+		</div>
+	</section>
+
+	<footer>
+		<p>&copy; <?php echo FVUS_COPYRIGHT_START; if( FVUS_COPYRIGHT_START !== date(Y) ){ echo '-' . date(y); } ?> <a href="<?php echo FVUS_SERVICE_URL; ?>"><?php echo FVUS_SERVICE_NAME; ?></a></p>
+	</footer>
 </body>
 </html>

@@ -10,6 +10,29 @@
 
 	define('FVUS_CONFIG_LOADED', true); 
 
+	//
+	// General Details
+	/**
+	 * The name of your site or service (used in default pages)
+	 **/
+	if( !defined( 'FVUS_SERVICE_NAME' ) )
+		define('FVUS_SERVICE_NAME', '');
+
+	/**
+	 * URL path to your site that promots your service - ex: https://freshvine.co/
+	 **/
+	if( !defined( 'FVUS_SERVICE_URL' ) )
+		define('FVUS_SERVICE_URL', '');
+
+	/**
+	 * The year to start your copyright claim - YYYY - ex: 2014
+	 **/
+	if( !defined( 'FVUS_COPYRIGHT_START' ) )
+		define('FVUS_COPYRIGHT_START', date(Y));
+	// General Details
+	//
+
+
 	
 	//
 	// MySQL Database Configuration

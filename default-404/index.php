@@ -1,10 +1,10 @@
 <?php
-
 	$thisBaseURL = $BaseURL . 'default-404/';
 	
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
+	<title>Link not Found - <?php echo FVUS_SERVICE_NAME; ?> URL Shortener</title>
 	<base href="<?php echo $thisBaseURL; ?>" target="_blank"><?php // Required to work with dynamic re-writing - this path is correct ?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
