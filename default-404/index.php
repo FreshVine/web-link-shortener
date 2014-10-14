@@ -4,7 +4,7 @@
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Link not Found - <?php echo FVUS_SERVICE_NAME; ?> URL Shortener</title>
+	<title>Link not Found - <?php echo FVLS_SERVICE_NAME; ?> URL Shortener</title>
 	<base href="<?php echo $thisBaseURL; ?>" target="_blank"><?php // Required to work with dynamic re-writing - this path is correct ?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +27,7 @@
 		<div class="vertCenter textCenter">
 			<h1>Oh, no! Link not Found</h1>
 			Looks like your link was lost somewhere in space.<br />
-			At least you can learn more about <a href="<?php echo FVUS_SERVICE_URL; ?>"><?php echo FVUS_SERVICE_NAME; ?></a>
+			At least you can learn more about <a href="<?php echo FVLS_SERVICE_URL; ?>"><?php echo FVLS_SERVICE_NAME; ?></a>
 		</div>
 	</header>
 </body>

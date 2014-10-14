@@ -20,13 +20,13 @@
 	$BaseURL .= $_SERVER['HTTP_HOST'];
 	$Requested = ltrim( $_SERVER['REQUEST_URI'], '/' );
 	
-	if( !is_null( FVUS_SITE_PATH ) ){
-		$BaseURL = rtrim( $BaseURL, '/' ) . '/' . trim( FVUS_SITE_PATH, '/' ) . '/';	// Lets get our base
+	if( !is_null( FVLS_SITE_PATH ) ){
+		$BaseURL = rtrim( $BaseURL, '/' ) . '/' . trim( FVLS_SITE_PATH, '/' ) . '/';	// Lets get our base
 
 		if( stripos( $Requested, '/' ) !== false ){
-			$len = strlen( trim( FVUS_SITE_PATH, '/' ) . '/' );
+			$len = strlen( trim( FVLS_SITE_PATH, '/' ) . '/' );
 			if( $len != strlen( $Requested ) )
-				$Requested = substr( $Requested, strpos( stripos( $Requested, trim( FVUS_SITE_PATH, '/' ) . '/' ) )  + $len );
+				$Requested = substr( $Requested, strpos( stripos( $Requested, trim( FVLS_SITE_PATH, '/' ) . '/' ) )  + $len );
 			else
 				$Requested = NULL;
 		}

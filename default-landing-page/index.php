@@ -4,7 +4,7 @@
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-	<title><?php echo FVUS_SERVICE_NAME; ?> URL Shortener</title>
+	<title><?php echo FVLS_SERVICE_NAME; ?> URL Shortener</title>
 	<base href="<?php echo $thisBaseURL; ?>" target="_blank"><?php // Required to work with dynamic re-writing - this path is correct ?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,14 +25,14 @@
 <body>
 	<div class="theBase"></div>
 	<header class="primary-header">
-		<h1><?php echo FVUS_SERVICE_NAME; ?>  Link Shortener</h1>
+		<h1><?php echo FVLS_SERVICE_NAME; ?>  Link Shortener</h1>
 	</header>
 
 	<section id="primary-content">
 		<div class="row-fluid">
 			<article class="offset2 span8 textCenter description">
-				A link shortening service for <?php echo FVUS_SERVICE_NAME; ?><br />
-				Learn more about what we do at <a href="<?php echo FVUS_SERVICE_URL; ?>"><?php echo rtrim( substr( FVUS_SERVICE_URL, strpos( FVUS_SERVICE_URL, '://' ) + 3 ), '/' ); ?></a>
+				A link shortening service for <?php echo FVLS_SERVICE_NAME; ?><br />
+				Learn more about what we do at <a href="<?php echo FVLS_SERVICE_URL; ?>"><?php echo rtrim( substr( FVLS_SERVICE_URL, strpos( FVLS_SERVICE_URL, '://' ) + 3 ), '/' ); ?></a>
 			</div>
 		</div>
 		<div class="row-fluid">
@@ -48,7 +48,7 @@
 						It's easier to tweet, text, and print short links.
 						The shorter the less chance of typos or links becoming cut off.</p>
 					<p>There are numerous link shortening services out there.
-						This one is designed to work with <a href="<?php echo FVUS_SERVICE_URL; ?>"><?php echo FVUS_SERVICE_NAME; ?></a>.
+						This one is designed to work with <a href="<?php echo FVLS_SERVICE_URL; ?>"><?php echo FVLS_SERVICE_NAME; ?></a>.
 						So if you're wondering where the link came from.
 						Checking them out would be the logical choice.</p>
 				</div>
@@ -72,7 +72,7 @@
 	</section>
 
 	<footer>
-		<p>&copy; <?php echo FVUS_COPYRIGHT_START; if( FVUS_COPYRIGHT_START !== date(Y) ){ echo '-' . date(y); } ?> <a href="<?php echo FVUS_SERVICE_URL; ?>"><?php echo FVUS_SERVICE_NAME; ?></a>
+		<p>&copy; <?php echo FVLS_COPYRIGHT_START; if( FVLS_COPYRIGHT_START !== date(Y) ){ echo '-' . date(y); } ?> <a href="<?php echo FVLS_SERVICE_URL; ?>"><?php echo FVLS_SERVICE_NAME; ?></a>
 			&middot; <a href="https://github.com/FreshVine/link-shortener">Follow on Github</a>
 		</p>
 	</footer>
