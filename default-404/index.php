@@ -23,6 +23,12 @@
 	<link rel="icon" type="image/png" href="favicon.png">
 </header>
 <body>
-	<h1>Link not Found</h1>
+	<header class="theBase">
+		<div class="vertCenter textCenter">
+			<h1>Oh, no! Link not Found</h1>
+			Looks like your link was lost somewhere in space.<br />
+			At least you can learn more about <a href="<?php echo FVUS_SERVICE_URL; ?>"><?php echo FVUS_SERVICE_NAME; ?></a>
+		</div>
+	</header>
 </body>
 </html>
