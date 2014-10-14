@@ -3,3 +3,7 @@ config.php
 404/*
 landing-page/*
 
+
+includes/cache.php
+
+includes/browscap.ini
