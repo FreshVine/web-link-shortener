@@ -117,18 +117,23 @@
 			}
 
 			$FilePath = urldecode( FVLS_APP_PATH . $Requested  );
-			ob_start();
-			if( !strpos( $Requested, '.php' ) ){
-				$handle = @fopen( $FilePath, "rb");
-				@fpassthru($handle);
-			}else
-				include( $FilePath );
-			header('Content-Length: '.ob_get_length(), true);
-			if( defined('FVLS_DEVELOPER_MODE') && FVLS_DEVELOPER_MODE )
-				header('x-developer-location: landing 1', true);
-			ob_end_flush();
+			if( is_file( $FilePath ) ){
+				//
+				// Push contents through the buffer to the client
+				ob_start();
+				if( !strpos( $FilePath, '.php' ) ){	// Doesn't need to be processed
+					$handle = @fopen( $FilePath, "rb");
+					@fpassthru($handle);
+				}else
+					include( $FilePath );	// Might need to be processed by php
 
-			exit();	// stop progression
+				header('Content-Length: '.ob_get_length(), true);
+				ob_end_flush();
+				// Push contents through the buffer to the client
+				//
+			}else{
+				header("HTTP/1.0 404 Not Found");	// File doesn't exist
+			}
 		}
 		// Load the actual content
 		//
@@ -215,16 +220,25 @@
 			fvls_SetContentType( $Requested );	// Found the file
 		}
 
-		$FilePath = urldecode( FVLS_APP_PATH . $Requested  );
 
-		ob_start();
-		if( !strpos( $Requested, '.php' ) ){
-			$handle = @fopen( $FilePath, "rb");
-			@fpassthru($handle);
-		}else
-			include( $FilePath );
-		header('Content-Length: '.ob_get_length(), true);
-		ob_end_flush();
+		$FilePath = urldecode( FVLS_APP_PATH . $Requested  );
+		if( is_file( $FilePath ) ){
+			//
+			// Push contents through the buffer to the client
+			ob_start();
+			if( !strpos( $FilePath, '.php' ) ){	// Doesn't need to be processed
+				$handle = @fopen( $FilePath, "rb");
+				@fpassthru($handle);
+			}else
+				include( $FilePath );	// Might need to be processed by php
+
+			header('Content-Length: '.ob_get_length(), true);
+			ob_end_flush();
+			// Push contents through the buffer to the client
+			//
+		}else{
+			header("HTTP/1.0 404 Not Found");	// File doesn't exist
+		}
 
 		exit();	// stop progression
 	}
