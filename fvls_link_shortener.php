@@ -243,6 +243,7 @@
 		//
 		// Ensure we don't use any bad words in our short tags
 		global $BadWords;
+		$BadWords = array_merge( array('404','landing-page'), $BadWords );	// Ensure our dedicated terms are never used - will screw up errors and landing pages if removed
 		foreach( $Tags as $thisTag ){
 			// Lets take it at face value
 			if( in_array( $thisTag, $BadWords ) )
