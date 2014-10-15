@@ -26,7 +26,7 @@
 	//
 	// Load up Browscap | used to parse out the user_agent string.
 	ini_set("memory_limit","512M");	// Needed to successfully cache the browser cache
-	require 'includes/Browscap.php';
+	require 'fvls_Browscap.php';
 	use phpbrowscap\Browscap;			// The Browscap class is in the phpbrowscap namespace, so import it
 
 
