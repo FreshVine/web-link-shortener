@@ -76,7 +76,7 @@
 	 * The database table prefix if one exists. If not, then leave blank
 	 **/
 	if( !defined( 'FVLS_MYSQL_TABLE_PREFIX' ) )
-		define('FVLS_MYSQL_TABLE_PREFIX', '');
+		define('FVLS_MYSQL_TABLE_PREFIX', 'fvls_');
 	// MySQL Database Configuration
 	//
 

@@ -130,7 +130,6 @@
 	//
 	// Process the Short Link
 	include('fvls_db.php');	// Bring in the database connection
-	fvls_db_connect();
 	include('fvls_process.php');	// Bring in processing functions
 
 	// echo 'stop';	// http://localhost/url-shortener/garsh/?l=1&p=12&a=23

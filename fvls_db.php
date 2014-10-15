@@ -17,6 +17,16 @@
 
 
 	$FLVS_db_link = NULL;
+	$DatabaseVersion = '1';
+	fvls_db_connect();
+
+	$TablePrefix = '';
+	if( defined('FVLS_MYSQL_TABLE_PREFIX') && FVLS_MYSQL_TABLE_PREFIX != '' )
+		$TablePrefix = rtrim( FVLS_MYSQL_TABLE_PREFIX, '_' ) . '_';
+
+	//
+	// Check if we need to install or update
+	include 'database/install.php';
 
 
 	/**
