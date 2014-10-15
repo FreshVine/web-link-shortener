@@ -23,7 +23,7 @@
 
 
 	$Tables = array();
-	$sql = "SHOW TABLES LIKE '".$TablePrefix."link%'";
+	$sql = "SHOW TABLES LIKE '".$fvls_TablePrefix."link%'";
 	$results = fvls_db_ExecuteQuery( $sql );
 
 	if( $results->num_rows > 0 ){
@@ -36,7 +36,7 @@
 	/**
 	 * Create the `link` table
 	 **/
-	$TableName = $TablePrefix . 'link';
+	$TableName = $fvls_TablePrefix . 'link';
 	if( !in_array( $TableName, $Tables ) ){
 		$sql = "CREATE TABLE `$TableName` (
 				  `ID` int(11) NOT NULL AUTO_INCREMENT,
@@ -62,7 +62,7 @@
 	/**
 	 * Create the `link_click` table
 	 **/
-	$TableName = $TablePrefix . 'link_click';
+	$TableName = $fvls_TablePrefix . 'link_click';
 	if( !in_array( $TableName, $Tables ) ){
 		$sql = "CREATE TABLE `$TableName` (
 				  `ID` int(20) NOT NULL AUTO_INCREMENT,
@@ -94,7 +94,7 @@
 	/**
 	 * Create the `link_conf` table
 	 **/
-	$TableName = $TablePrefix . 'link_conf';
+	$TableName = $fvls_TablePrefix . 'link_conf';
 	if( !in_array( $TableName, $Tables ) ){
 		$sql = "CREATE TABLE `$TableName` (
 				  `Named` varchar(32) NOT NULL,
@@ -116,7 +116,7 @@
 	/**
 	 * Create the `link_ua` table
 	 **/
-	$TableName = $TablePrefix . 'link_ua';
+	$TableName = $fvls_TablePrefix . 'link_ua';
 	if( !in_array( $TableName, $Tables ) ){
 		$sql = "CREATE TABLE `$TableName` (
 				  `UAkey` varchar(60) NOT NULL COMMENT 'the SHA1 version of the user-agent string',

@@ -57,8 +57,8 @@
 
 		//
 		// Check if it already exists
-		global $TablePrefix;
-		$table = $TablePrefix . 'link';
+		global $fvls_TablePrefix;
+		$table = $fvls_TablePrefix . 'link';
 		if( !$ForceNew ){
 			$Where = array();
 			foreach( $Data as $k => $v )
