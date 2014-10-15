@@ -1,4 +1,16 @@
 <?php
+	/*
+	//
+	//	Fresh Vine Link Shortener
+	//
+	//
+	//	Page Purpose:
+	//	This is the default error page. It loads when nothing else is found to load
+	//
+	//	Version: 1.0
+	//
+	*/
+
 	$thisBaseURL = $BaseURL . 'default-404/';
 	
 ?><!DOCTYPE html>

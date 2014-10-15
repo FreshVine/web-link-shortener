@@ -7,6 +7,8 @@
 	//	Page Purpose:
 	//	Creates all the database structure and schema needed for the link shortener to work
 	//
+	//	Version: 1.0
+	//
 	*/
 
 

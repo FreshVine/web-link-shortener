@@ -7,6 +7,8 @@
 	//	Page Purpose:
 	//	Drop this into your app - include it, and make your short links. Also can generate basic reports.
 	//
+	//	Version: 1.0
+	//
 	*/
 
 

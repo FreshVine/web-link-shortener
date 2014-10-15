@@ -7,6 +7,8 @@
 	//	Page Purpose:
 	//	General Functions for the application to work.
 	//
+	//	Version: 1.0
+	//
 	*/
 
 

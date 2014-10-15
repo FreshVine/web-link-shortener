@@ -7,6 +7,8 @@
 	//	Page Purpose:
 	//	Builds and manages the connections to the database.
 	//
+	//	Version: 1.0
+	//
 	*/
 
 

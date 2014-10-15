@@ -1,10 +1,18 @@
 <?php
-	// 
-	//	This is the configuration page for the Fresh Vine URL Shortener
+	/*
 	//
+	//	Fresh Vine Link Shortener
+	//
+	//
+	//	Page Purpose:
+	//	Gotta get your config on - the defined constants are used throughout the service to manage configuration values
+	//
+	//	Version: 1.0
+	//
+	*/
 
 
-	// Lets not do this twice - shall we?
+	// Lets not do this twice - shall we
 	if( defined('FVLS_CONFIG_LOADED') )
 		return;	// Thanks for coming!
 

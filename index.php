@@ -7,6 +7,8 @@
 	//	Page Purpose:
 	//	Every request goes through this page. It will either display the landing page or error page, or process the redirect.
 	//
+	//	Version: 1.0
+	//
 	*/
 
 	//

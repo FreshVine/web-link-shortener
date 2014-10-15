@@ -1,4 +1,16 @@
 <?php
+	/*
+	//
+	//	Fresh Vine Link Shortener
+	//
+	//
+	//	Page Purpose:
+	//	This is the default landing page. It will load up when there is no additional path or content to fetch.
+	//
+	//	Version: 1.0
+	//
+	*/
+
 	$thisBaseURL = $BaseURL . 'default-landing-page/';
 	
 ?><!DOCTYPE html>
