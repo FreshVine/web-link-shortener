@@ -61,8 +61,7 @@
 						The shorter the less chance of typos or links becoming cut off.</p>
 					<p>There are numerous link shortening services out there.
 						This one is designed to work with <a href="<?php echo FVLS_SERVICE_URL; ?>"><?php echo FVLS_SERVICE_NAME; ?></a>.
-						So if you're wondering where the link came from.
-						Checking them out would be the logical choice.</p>
+						So if you're wondering where the link came from, checking them out would be the logical choice.</p>
 				</div>
 			</article>
 		
