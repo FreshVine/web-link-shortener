@@ -7,3 +7,5 @@ landing-page/*
 includes/cache.php
 
 includes/browscap.ini
+
+fvls_config.php

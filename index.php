@@ -11,13 +11,13 @@
 
 	//
 	// Bring in the config file
-	if( !is_file( 'config.php' ) )
-		exit('You need to copy the default-config.php file to config.php and fill it out!');
+	if( !is_file( 'fvls_config.php' ) )
+		exit('You need to copy the default-fvls_config.php file to fvls_config.php and fill it out!');
 	error_reporting(E_ALL); ini_set('display_errors', '1');
 	header('x-service: Fresh Vine URL Redirect');
 	header('x-service-source: https://github.com/FreshVine/link-shortener');
 
-	include('config.php');
+	include('fvls_config.php');
 	include('fvls_functions.php');
 	$IndexOrder = array('index.php', 'index.htm', 'index.html');
 

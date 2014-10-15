@@ -10,7 +10,7 @@ This particular URL shortener was designed to work along side a SaaS product tha
 There are a few things that you need to do to get this configured and ready for use.  
   
 1. **Configure your Software**  
-To do this you simply make a copy of the `default-config.php` file without the 'default-' prefix. Then consult ensure all the values needed are correctly entered into it.
+To do this you simply make a copy of the `default-fvls_config.php` file without the 'default-' prefix. Then consult ensure all the values needed are correctly entered into it.
 
 1. **Database Setup** *optional*  
 Based on the configuration settings you supplied in the first step your database will be created or updated. You can manually run the version scripts if you choose, but it will be done automatically for you.
