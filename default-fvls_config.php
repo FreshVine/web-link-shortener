@@ -84,6 +84,12 @@
 	//
 	// Structure and Path stuff
 	/**
+	 * The domain with schema for the link shortener to live at (ex: http://localhost/, https://freshv.in/ ) - include trailing slash
+	 **/
+	if( !defined( 'FVLS_SITE_DOMAIN' ) )
+		define('FVLS_SITE_DOMAIN', 'http://localhost/');
+
+	/**
 	 * The path to the folder (leave NULL if it is not in a folder). EX: 'shortened/links'
 	 **/
 	if( !defined( 'FVLS_SITE_PATH' ) )
