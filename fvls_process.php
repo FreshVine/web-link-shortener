@@ -206,7 +206,7 @@
 		$results = fvls_db_ExecuteQuery( $sqlCheck );
 		if( $results->num_rows > 0 ){
 
-			$CachePath = 'includes/';
+			$CachePath = FVLS_APP_PATH . 'includes/';
 			if( defined( 'FVLS_CACHE_PATH' ) && !is_null( FVLS_CACHE_PATH ) )
 				$CachePath = FVLS_CACHE_PATH;	// prep the cache path
 

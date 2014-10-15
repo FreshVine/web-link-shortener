@@ -11,16 +11,20 @@
 	//
 	*/
 
+
 	//
 	// Bring in the config file
-	if( !is_file( 'fvls_config.php' ) )
+	if( !defined( 'FVLS_APP_PATH' ) )
+		define( 'FVLS_APP_PATH', '/' . trim(substr( __FILE__, 0, -9 ), '/' ) . '/' );	// Build out the path to this file
+
+	if( !is_file( FVLS_APP_PATH . 'fvls_config.php' ) )
 		exit('You need to copy the default-fvls_config.php file to fvls_config.php and fill it out!');
 	error_reporting(E_ALL); ini_set('display_errors', '1');
 	header('x-service: Fresh Vine URL Redirect');
 	header('x-service-source: https://github.com/FreshVine/link-shortener');
 
-	include('fvls_config.php');
-	include('fvls_functions.php');
+	include(FVLS_APP_PATH . 'fvls_config.php');
+	include(FVLS_APP_PATH . 'fvls_functions.php');
 	$IndexOrder = array('index.php', 'index.htm', 'index.html');
 
 
@@ -64,9 +68,9 @@
 	if( is_null( $Requested ) || stripos( $Requested, 'landing-page' ) !== false ){
 		$CustomLandingPage = $IndexFile = null;
 		// Preference is for their version of the landing page
-		if( is_dir('landing-page') ){
+		if( is_dir( FVLS_APP_PATH . 'landing-page') ){
 			foreach( $IndexOrder as $try ){
-				if( !is_file( 'landing-page/' . $try ) ){ continue; }
+				if( !is_file( FVLS_APP_PATH . 'landing-page/' . $try ) ){ continue; }
 
 				$IndexFile = $try;
 				$CustomLandingPage = true;
@@ -74,9 +78,9 @@
 			}
 		}
 
-		if( !$CustomLandingPage && is_dir('default-landing-page') ){
+		if( !$CustomLandingPage && is_dir( FVLS_APP_PATH . 'default-landing-page') ){
 			foreach( $IndexOrder as $try ){
-				if( !is_file( 'default-landing-page/' . $try ) ){ continue; }
+				if( !is_file( FVLS_APP_PATH . 'default-landing-page/' . $try ) ){ continue; }
 
 				$IndexFile = $try;
 				$CustomLandingPage = false;
@@ -88,9 +92,9 @@
 		//
 		// Are we loading the 
 		if( $CustomLandingPage )
-			$path = 'landing-page/';
+			$path = FVLS_APP_PATH . 'landing-page/';
 		else if( !$CustomLandingPage )
-			$path = 'default-landing-page/';
+			$path = FVLS_APP_PATH . 'default-landing-page/';
 
 
 		// Throw an error since there is no content
@@ -131,8 +135,8 @@
 	//
 	//
 	// Process the Short Link
-	include('fvls_db.php');	// Bring in the database connection
-	include('fvls_process.php');	// Bring in processing functions
+	include(FVLS_APP_PATH . 'fvls_db.php');	// Bring in the database connection
+	include(FVLS_APP_PATH . 'fvls_process.php');	// Bring in processing functions
 
 	// echo 'stop';	// http://localhost/url-shortener/garsh/?l=1&p=12&a=23
 	$endpoint = FVLS_CheckShortTag( $Requested );
@@ -161,9 +165,9 @@
 	// Looks like we didn't find anything - time to load up an error
 	$Custom404Page = $IndexFile = null;
 	// Preference is for their version of the landing page
-	if( is_dir('404') ){
+	if( is_dir( FVLS_APP_PATH . '404') ){
 		foreach( $IndexOrder as $try ){
-			if( !is_file( '404/' . $try ) ){ continue; }
+			if( !is_file( FVLS_APP_PATH . '404/' . $try ) ){ continue; }
 
 			$IndexFile = $try;
 			$Custom404Page = true;
@@ -171,9 +175,9 @@
 		}
 	}
 
-	if( !$Custom404Page && is_dir('default-404') ){
+	if( !$Custom404Page && is_dir( FVLS_APP_PATH . 'default-404') ){
 		foreach( $IndexOrder as $try ){
-			if( !is_file( 'default-404/' . $try ) ){ continue; }
+			if( !is_file( FVLS_APP_PATH . 'default-404/' . $try ) ){ continue; }
 
 			$IndexFile = $try;
 			$Custom404Page = false;
@@ -192,9 +196,9 @@
 	//
 	// Are we loading the 
 	if( $Custom404Page )
-		$path = '404/';
+		$path = FVLS_APP_PATH . '404/';
 	else if( !$Custom404Page )
-		$path = 'default-404/';
+		$path = FVLS_APP_PATH . 'default-404/';
 
 
 	// Throw an error since there is no content
@@ -208,7 +212,7 @@
 			fvls_SetContentType( $Requested );	// Found the file
 		}
 
-		$FilePath = urldecode( $path  . $Requested  );
+		$FilePath = urldecode( $path . $Requested  );
 		// $handle = @fopen( $FilePath, "rb");
 		ob_start();
 		include( $FilePath );

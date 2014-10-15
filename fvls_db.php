@@ -28,7 +28,8 @@
 
 	//
 	// Check if we need to install or update
-	include 'database/install.php';
+	if( is_file( FVLS_APP_PATH . 'database/install.php') ) 
+		include FVLS_APP_PATH . 'database/install.php';
 
 
 	/**

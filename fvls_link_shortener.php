@@ -12,10 +12,13 @@
 	*/
 
 
+	if( !defined( 'FVLS_APP_PATH' ) )
+		define( 'FVLS_APP_PATH', '/' . trim(substr( __FILE__, 0, -23 ), '/' ) . '/' );	// Build out the path to this file
+
 	//
 	// Include the required files
-	include 'fvls_config.php';	// Ensure this file is in the same folder as this one
-	include 'fvls_db.php';		// Ensure this file is in the same folder as this one
+	include FVLS_APP_PATH . 'fvls_config.php';	// Ensure this file is in the same folder as this one
+	include FVLS_APP_PATH . 'fvls_db.php';		// Ensure this file is in the same folder as this one
 
 
 	//
