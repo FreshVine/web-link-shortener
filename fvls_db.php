@@ -102,7 +102,7 @@
 
 		if ( !($response = $FLVS_db_link->query( $sql ) ) ){
 			if( defined('FVLS_DEVELOPER_MODE') && FVLS_DEVELOPER_MODE )
-			    echo "FV Link Shortener Error: mySQL Query Error - $FLVS_db_link->error\n";
+			    echo "FV Link Shortener Error: mySQL Query Error - $FLVS_db_link->error | $sql\n";
 			return false;
 		}
 

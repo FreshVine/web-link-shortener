@@ -39,8 +39,10 @@
 	function FVLS_CheckShortTag( $ShortTag ){
 		//
 		// Check if the short tag is set
+		global $fvls_TablePrefix;
+		$TableName = $fvls_TablePrefix . 'link';
 		$ShortTag = addslashes( $ShortTag );	// Ensure no shenanigans
-		$response = fvls_db_ExecuteQuery( "SELECT * FROM `link`
+		$response = fvls_db_ExecuteQuery( "SELECT * FROM `$TableName`
 											WHERE `ShortTag` = '$ShortTag'
 												AND `Active` = '1'" );	// Look for this short tag
 		if( $response->num_rows !== 1 )
@@ -97,7 +99,10 @@
 			// Optional Values
 			//
 
-		$sql = "INSERT INTO `link_click` (`". implode( '`,`', array_keys( $Insert ) ) ."`)
+
+		global $fvls_TablePrefix;
+		$TableName = $fvls_TablePrefix . 'link_click';
+		$sql = "INSERT INTO `$TableName` (`". implode( '`,`', array_keys( $Insert ) ) ."`)
 					VALUES ('". implode( "','", $Insert ) ."');";
 		// Build the query
 		//
@@ -116,12 +121,14 @@
 
 		//
 		// Check if the User Agent needs to be added
-		$sqlUAcheck = "SELECT * FROM `link_ua`
+		global $fvls_TablePrefix;
+		$TableName = $fvls_TablePrefix . 'link_ua';
+		$sqlUAcheck = "SELECT * FROM `$TableName`
 						WHERE `UAkey` = '$Insert[UserAgentKey]';";
 		$response = fvls_db_ExecuteQuery( $sqlUAcheck );
 		if( $response->num_rows == 0 ){
 			$uas = addslashes( $_SERVER['HTTP_USER_AGENT'] );
-			$sqlUAadd = "INSERT INTO `link_ua` (`UAkey`, `UAstring`)
+			$sqlUAadd = "INSERT INTO `$TableName` (`UAkey`, `UAstring`)
 							VALUES ('$Insert[UserAgentKey]', '$uas');";
 			$response = fvls_db_ExecuteQuery( $sqlUAadd );
 
@@ -145,7 +152,9 @@
 
 		//
 		// Process the IP addresses
-		$sqlCheck = "SELECT * FROM `link_click`
+		global $fvls_TablePrefix;
+		$TableName = $fvls_TablePrefix . 'link_click';
+		$sqlCheck = "SELECT * FROM `$TableName`
 						WHERE `Processed` = '0'
 						GROUP BY `IPAddress`;";
 		$results = fvls_db_ExecuteQuery( $sqlCheck );
@@ -184,7 +193,9 @@
 					$SetTemp[] = "`$k` = '" . addslashes( $v ) . "'";
 				$SetTemp = implode( ', ', $SetTemp );
 
-				$sqlUpdate  = "UPDATE `link_click`
+				global $fvls_TablePrefix;
+				$TableName = $fvls_TablePrefix . 'link_click';
+				$sqlUpdate  = "UPDATE `$TableName`
 								SET $SetTemp
 								WHERE `IPAddress` = '$rows[IPAddress]'
 									AND `Processed` = '0'";
@@ -201,7 +212,9 @@
 
 		//
 		// Process the User Agents
-		$sqlCheck = "SELECT * FROM `link_ua`
+		global $fvls_TablePrefix;
+		$TableName = $fvls_TablePrefix . 'link_ua';
+		$sqlCheck = "SELECT * FROM `$TableName`
 						WHERE `DeviceType` IS NULL;";	// Lets us update them in batches
 		$results = fvls_db_ExecuteQuery( $sqlCheck );
 		if( $results->num_rows > 0 ){
@@ -255,7 +268,10 @@
 					$SetTemp[] = "`$k` = '" . addslashes( $v ) . "'";
 				$SetTemp = implode( ', ', $SetTemp );
 
-				$sqlUpdate = "UPDATE `link_ua`
+
+				global $fvls_TablePrefix;
+				$TableName = $fvls_TablePrefix . 'link_ua';
+				$sqlUpdate = "UPDATE `$TableName`
 								SET $SetTemp 
 								WHERE `UAkey` = '$rows[UAkey]';";	// Lets us update them in batches
 				fvls_db_ExecuteQuery( $sqlUpdate );	// process the query

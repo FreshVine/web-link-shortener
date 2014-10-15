@@ -101,20 +101,29 @@
 	function RemoveShortLink( $ShortTag, $CustomerID = NULL, $UserID = NULL ){
 		$ShortTag = addslashes( $ShortTag );	// Sanitize it
 
+		//
+		// Prepare the query
 		$Where = NULL;
 		if( !is_null( $CustomerID ) && is_numeric( $CustomerID ) )
 			$Where .= " AND `CustomerId` = '$CustomerID'";
 		if( !is_null( $UserID ) && is_numeric( $UserID ) )
 			$Where .= " AND `UserId` = '$UserID'";
-		
-		
-		$sql = "UPDATE `link`
+
+
+		//
+		// Run the query
+		global $fvls_TablePrefix;
+		$TableName = $fvls_TablePrefix . 'link';
+		$sql = "UPDATE `$TableName`
 				SET `Active` = '0'
 				WHERE `ShortTag` = '$ShortTag'
 					$Where
 					AND `Active` = '1';";
 		fvls_db_ExecuteQuery( $sql );	// process the query
 
+
+		//
+		// Check the Response
 		if( fvls_db_AffectedRows() == 0 )
 			return false;
 
@@ -126,7 +135,9 @@
 	 * Returns a brand new short tag
 	 **/
 	function GenerateShortTag(){
-		$sql = "SELECT `Datum` FROM `link_conf` WHERE `Named` = 'link_id';";
+		global $fvls_TablePrefix;
+		$TableName = $fvls_TablePrefix . 'link_conf';
+		$sql = "SELECT `Datum` FROM `$TableName` WHERE `Named` = 'link_id';";
 		$result = fvls_db_ExecuteQuery( $sql );
 		$row = $result->fetch_assoc();
 		$i = $row['Datum'];
@@ -171,7 +182,9 @@
 
 			//
 			// Ensure we haven't used it before
-			$sql = "SELECT `ShortTag` FROM `link` WHERE `ShortTag` = '$ShortTag';";
+			global $fvls_TablePrefix;
+			$TableName = $fvls_TablePrefix . 'link';
+			$sql = "SELECT `ShortTag` FROM `$TableName` WHERE `ShortTag` = '$ShortTag';";
 			$result = fvls_db_ExecuteQuery( $sql );	// process the query
 			if( $result->num_rows == 1 ){
 				++$i;	// Increment and try again for a valid value
@@ -187,7 +200,9 @@
 
 		//
 		// Cache the current link_id increment value
-		$sql = "UPDATE `link_conf` SET `Datum` = '$i' WHERE `Named` = 'link_id';";
+		global $fvls_TablePrefix;
+		$TableName = $fvls_TablePrefix . 'link_conf';
+		$sql = "UPDATE `$TableName` SET `Datum` = '$i' WHERE `Named` = 'link_id';";
 		fvls_db_ExecuteQuery( $sql );
 
 
