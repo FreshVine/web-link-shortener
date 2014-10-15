@@ -40,12 +40,11 @@
 	if( !in_array( $TableName, $Tables ) ){
 		$sql = "CREATE TABLE `$TableName` (
 				  `ID` int(11) NOT NULL AUTO_INCREMENT,
-				  `ShortTag` varchar(12) NOT NULL,
-				  `CustomerId` int(11) DEFAULT NULL,
-				  `UserId` int(11) DEFAULT NULL,
+				  `ShortTag` varchar(12) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
 				  `EndLink` varchar(1024) NOT NULL,
 				  `EndLinkDomain` varchar(1024) NOT NULL,
-				  `EndLinkResponseCode` int(3) NOT NULL DEFAULT '200',
+				  `CustomerId` int(11) DEFAULT NULL,
+				  `UserId` int(11) DEFAULT NULL,
 				  `ForType` varchar(255) DEFAULT NULL COMMENT 'Specifiy what type of element created it - ex: event, email',
 				  `ForTypeId` int(11) DEFAULT NULL COMMENT 'Specify the id of the type element that created it',
 				  `Active` tinyint(1) NOT NULL DEFAULT '1',
@@ -67,7 +66,7 @@
 	if( !in_array( $TableName, $Tables ) ){
 		$sql = "CREATE TABLE `$TableName` (
 				  `ID` int(20) NOT NULL AUTO_INCREMENT,
-				  `ShortTag` varchar(12) NOT NULL,
+				  `ShortTag` varchar(12) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
 				  `ClickTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 				  `Location` varchar(255) DEFAULT NULL,
 				  `PersonID` int(30) DEFAULT NULL,
@@ -108,7 +107,7 @@
 		// Install the starting values
 		$sql = "INSERT INTO `$TableName` (`Named`, `Datum`)
 				VALUES ('db_version', '1'),
-					('link_id','1');";
+					('link_id','0');";
 		$results = fvls_db_ExecuteQuery( $sql );
 	}
 
