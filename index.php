@@ -18,7 +18,7 @@
 	header('x-service-source: https://github.com/FreshVine/link-shortener');
 
 	include('config.php');
-	include('functions.php');
+	include('fvls_functions.php');
 	$IndexOrder = array('index.php', 'index.htm', 'index.html');
 
 
