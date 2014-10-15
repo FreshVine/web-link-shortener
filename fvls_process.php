@@ -150,10 +150,15 @@
 		if( $results->num_rows > 0 ){
 			while( $rows = $results->fetch_assoc() ){
 				$endpoint = "http://freegeoip.net/json/" . $rows['IPAddress'];	// Possible alternative would be http://ipinfo.io/
-				$IPCoded = fvls_curl( $endpoint, array(), 'get' );
-				$Geo = json_decode( $IPCoded, true );
+				$IPCoded = $Geo = fvls_curl( $endpoint, array(), 'get', array(), true );
+				if( !is_array( $IPCoded ) )
+					$Geo = json_decode( $IPCoded, true );
+
 				if( $IPCoded === false || !is_array( $Geo ) )
 					continue;	// Unable to process
+
+				if( array_key_exists('error', $Geo ) && $Geo['error'] == 400 )
+					continue;
 
 				//
 				// Prepare the Update

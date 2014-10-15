@@ -19,7 +19,7 @@
 	/**
 	 * Get or post data to another server.
 	 **/
-	function fvls_curl( $EndPoint, $Data = array(), $Method = 'post', $Headers = array() ){
+	function fvls_curl( $EndPoint, $Data = array(), $Method = 'post', $Headers = array(), $ReturnErrorCode = false ){
 		// Ensure that the Endpoint is a URL, $Data is an array, and Method is either GET, POST, or DELETE
 		$Method = strtolower( $Method );
 		$parsedURL = parse_url( $EndPoint );
@@ -94,8 +94,12 @@
 		curl_setopt( $cHANDLE, CURLOPT_URL, $EndPoint );			// Set the Endpoint for the conection
 		$response = curl_exec( $cHANDLE );
 		$http_status = curl_getinfo($cHANDLE, CURLINFO_HTTP_CODE);
+
 		if( $http_status >= 400 )
-			return false;	// Not a valid response
+			if( $ReturnErrorCode )
+				return array('error' => $http_status );
+			else
+				return false;	// Not a valid response
 
 		return $response;
 	}
