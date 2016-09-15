@@ -9,3 +9,4 @@ includes/cache.php
 includes/browscap.ini
 
 fvls_config.php
+*.DS_Store
